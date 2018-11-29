@@ -1,0 +1,17 @@
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS roles;
+
+CREATE TABLE roles (
+    role_id INT NOT NULL AUTO_INCREMENT,
+    title VARCHAR(10) NOT NULL,
+    description VARCHAR(30) NOT NULL,
+    PRIMARY KEY (role_id)
+) CHARACTER SET=UTF8;
+
+CREATE TABLE users (
+    user_id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(30) NOT NULL,
+    role_id INT NOT NULL,
+    PRIMARY KEY (user_id),
+    FOREIGN KEY (role_id) REFERENCES roles (role_id)
+) CHARACTER SET=UTF8;
